@@ -11,20 +11,20 @@
                 <div class="p-4">
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
-                            <Icon :class="'text-' + notification.color + '-400'" :icon="icon" />
+                            <Icon :class="'text-' + color + '-400'" :icon="icon" />
                         </div>
                         <div class="ml-3 w-0 flex-1 pt-0.5">
-                            <template v-if="notification.title && notification.message">
+                            <template v-if="title && description">
                                 <p class="text-sm font-medium text-gray-900">
-                                    {{ notification.title }}
+                                    {{ title }}
                                 </p>
                                 <p class="mt-1 text-sm text-gray-500">
-                                    {{ notification.message }}
+                                    {{ description }}
                                 </p>
                             </template>
                             <template v-else>
                                 <p class="text-sm font-medium text-gray-900">
-                                    {{ notification.message || notification.title }}
+                                    {{ description || title }}
                                 </p>
                             </template>
                         </div>
@@ -78,18 +78,18 @@ export default {
         },
         icon() {
             return {
-                503: 'Sorry, we are doing some maintenance. Please check back soon.',
-                500: 'Whoops, something went wrong on our servers.',
-                404: 'Sorry, the page you are looking for could not be found.',
-                403: 'Sorry, you are forbidden from accessing this page.',
+                503: 'information-circle',
+                500: 'exclamation-circle',
+                404: 'exclamation-circle',
+                403: 'x-circle',
             }[this.status]
         },
         color() {
             return {
-                503: 'Sorry, we are doing some maintenance. Please check back soon.',
-                500: 'Whoops, something went wrong on our servers.',
-                404: 'Sorry, the page you are looking for could not be found.',
-                403: 'Sorry, you are forbidden from accessing this page.',
+                503: 'lime',
+                500: 'purple',
+                404: 'teal',
+                403: 'red',
             }[this.status]
         },
         // notification() {

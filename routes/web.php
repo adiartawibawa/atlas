@@ -40,8 +40,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
         Route::resource('users', AdminUsers::class, ['as' => 'admin']);
 
-        // Route::get('settings/remove/{id}', [AdminSetting::class, 'remove'])->name('admin.settings.update');
+        Route::get('settings/remove/{id}', [AdminSetting::class, 'remove'])->name('admin.settings.update');
         Route::get('settings', [AdminSetting::class, 'index'])->name('admin.settings');
-        // Route::post('settings', [AdminSetting::class, 'update'])->name('admin.settings.update');
+        Route::post('settings', [AdminSetting::class, 'update'])->name('admin.settings.update');
     });
 });
