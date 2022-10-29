@@ -38,26 +38,6 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-
-        $this->renderable(function ($request, Throwable $e) {
-
-            $response = parent::render($request, $e);
-
-            if (!app()->environment(['local', 'testing']) && in_array($response->status(), [500, 503, 404, 403])) {
-                return Inertia::render('Error', [
-                    'status' => $response->status()
-                ])
-                    ->toResponse($request)
-                    ->setStatusCode($response->status());
-            } else if ($response->status() === 419) {
-                return redirect()->back()->with([
-                    'message' => 'The page expired, please try again.',
-                ]);
-            }
-
-            return $response;
-        });
-
         $this->reportable(function (Throwable $e) {
             //
         });

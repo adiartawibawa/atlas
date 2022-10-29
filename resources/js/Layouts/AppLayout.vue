@@ -54,6 +54,26 @@ const logout = () => {
                                 <JetNavLink :href="route('home')" :active="route().current('home')">
                                     Home
                                 </JetNavLink>
+
+                                <JetNavLink v-if="$page.props.user.roles == 'Admin'" :href="route('admin.dashboard')"
+                                    :active="route().current('admin.dashboard')">
+                                    Dashboard
+                                </JetNavLink>
+
+                                <JetNavLink v-if="$page.props.user.roles == 'Admin'" :href="route('home')"
+                                    :active="route().current('home')">
+                                    Users
+                                </JetNavLink>
+
+                                <JetNavLink v-if="$page.props.user.roles == 'Admin'" :href="route('home')"
+                                    :active="route().current('home')">
+                                    Roles & Permissions
+                                </JetNavLink>
+
+                                <JetNavLink v-if="$page.props.user.roles == 'Admin'" :href="route('home')"
+                                    :active="route().current('home')">
+                                    Settings
+                                </JetNavLink>
                             </div>
                         </div>
 
@@ -164,14 +184,6 @@ const logout = () => {
                                             </div>
                                         </JetDropdownLink>
 
-                                        <JetDropdownLink v-if="$page.props.user.roles == 'Admin'"
-                                            :href="route('admin.dashboard')">
-                                            <div class="flex justify-start items-center">
-                                                <Icon icon="fire" class="w-5 h-5 mr-1" />
-                                                Admin Area
-                                            </div>
-                                        </JetDropdownLink>
-
                                         <JetDropdownLink v-if="$page.props.jetstream.hasApiFeatures"
                                             :href="route('api-tokens.index')">
                                             API Tokens
@@ -197,14 +209,14 @@ const logout = () => {
                         <div class="-mr-2 flex items-center sm:hidden">
                             <button
                                 class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition"
-                                @click="showingNavigationDropdown = ! showingNavigationDropdown">
+                                @click="showingNavigationDropdown = !showingNavigationDropdown">
                                 <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                                     <path
-                                        :class="{'hidden': showingNavigationDropdown, 'inline-flex': ! showingNavigationDropdown }"
+                                        :class="{ 'hidden': showingNavigationDropdown, 'inline-flex': !showingNavigationDropdown }"
                                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M4 6h16M4 12h16M4 18h16" />
                                     <path
-                                        :class="{'hidden': ! showingNavigationDropdown, 'inline-flex': showingNavigationDropdown }"
+                                        :class="{ 'hidden': !showingNavigationDropdown, 'inline-flex': showingNavigationDropdown }"
                                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M6 18L18 6M6 6l12 12" />
                                 </svg>
@@ -214,7 +226,7 @@ const logout = () => {
                 </div>
 
                 <!-- Responsive Navigation Menu -->
-                <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}"
+                <div :class="{ 'block': showingNavigationDropdown, 'hidden': !showingNavigationDropdown }"
                     class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
                         <JetResponsiveNavLink :href="route('home')" :active="route().current('home')">
@@ -246,14 +258,6 @@ const logout = () => {
                                 <div class="flex justify-start items-center">
                                     <Icon icon="user-circle" class="w-5 h-5 mr-1" />
                                     Profile
-                                </div>
-                            </JetResponsiveNavLink>
-
-                            <JetResponsiveNavLink v-if="$page.props.user.roles == 'Admin'"
-                                :href="route('admin.dashboard')" :active="route().current('admin.dashboard')">
-                                <div class="flex justify-start items-center">
-                                    <Icon icon="fire" class="w-5 h-5 mr-1" />
-                                    Admin Area
                                 </div>
                             </JetResponsiveNavLink>
 

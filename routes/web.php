@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\UsersController as AdminUsers;
 use App\Http\Controllers\Admin\SettingController as AdminSetting;
+use App\Http\Controllers\Admin\RoleController as AdminRole;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -38,10 +39,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
             return Inertia::render('Admin/Dashboard');
         })->name('admin.dashboard');
 
-        Route::resource('users', AdminUsers::class, ['as' => 'admin']);
+        // Route::resource('users', AdminUsers::class, ['as' => 'admin']);
 
-        Route::get('settings/remove/{id}', [AdminSetting::class, 'remove'])->name('admin.settings.update');
-        Route::get('settings', [AdminSetting::class, 'index'])->name('admin.settings');
-        Route::post('settings', [AdminSetting::class, 'update'])->name('admin.settings.update');
     });
 });

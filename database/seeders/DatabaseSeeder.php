@@ -55,6 +55,7 @@ class DatabaseSeeder extends Seeder
             // add roles
             foreach ($roles_array as $role) {
                 $role = Role::firstOrCreate(['name' => trim($role)]);
+
                 if ($role->name == 'Admin') {
                     // assign all permissions
                     $role->syncPermissions(Permission::all());
@@ -101,7 +102,7 @@ class DatabaseSeeder extends Seeder
         if ($role->name == 'Admin') {
             $this->command->info('Here is your admin details to login:');
             $this->command->warn($user->email);
-            $this->command->warn('Password is "fujiyama"');
+            $this->command->warn('Password is "password"');
         }
     }
 }
