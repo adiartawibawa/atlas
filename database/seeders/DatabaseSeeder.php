@@ -102,7 +102,7 @@ class DatabaseSeeder extends Seeder
         if ($role->name == 'Admin') {
             $this->command->info('Here is your admin details to login:');
             $this->command->warn($user->email);
-            $this->command->warn('Password is "password"');
+            $this->command->warn('Password is "loveofmylife"');
         }
     }
 }

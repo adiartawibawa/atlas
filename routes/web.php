@@ -39,7 +39,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
             return Inertia::render('Admin/Dashboard');
         })->name('admin.dashboard');
 
-        // Route::resource('users', AdminUsers::class, ['as' => 'admin']);
-
+        Route::resource('users', AdminUsers::class, ['as' => 'admin']);
     });
 });

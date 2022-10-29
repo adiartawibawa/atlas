@@ -60,8 +60,8 @@ const logout = () => {
                                     Dashboard
                                 </JetNavLink>
 
-                                <JetNavLink v-if="$page.props.user.roles == 'Admin'" :href="route('home')"
-                                    :active="route().current('home')">
+                                <JetNavLink v-if="$page.props.user.roles == 'Admin'" :href="route('admin.users.index')"
+                                    :active="route().current('admin.users.*')">
                                     Users
                                 </JetNavLink>
 
