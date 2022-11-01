@@ -9,7 +9,7 @@ use Inertia\Inertia;
 
 class UsersController extends Controller
 {
-    use Authorizable;
+    // use Authorizable;
 
     /**
      * Display a listing of the resource.

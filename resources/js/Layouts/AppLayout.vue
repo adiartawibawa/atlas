@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { useDark, useToggle } from '@vueuse/core';
 import { Inertia } from '@inertiajs/inertia';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import JetApplicationMark from '@/Jetstream/ApplicationMark.vue';
@@ -27,6 +28,10 @@ const switchToTeam = (team) => {
 const logout = () => {
     Inertia.post(route('logout'));
 };
+
+const isDark = useDark();
+const toggleDark = useToggle(isDark)
+
 </script>
 
 <template>
@@ -36,8 +41,8 @@ const logout = () => {
 
         <JetBanner />
 
-        <div class="min-h-screen bg-gray-100">
-            <nav class="bg-white border-b border-gray-100">
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-800">
+            <nav class="bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
@@ -158,7 +163,7 @@ const logout = () => {
 
                                         <span v-else class="inline-flex rounded-md">
                                             <button type="button"
-                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-white focus:outline-none transition">
                                                 {{ $page.props.user.name }}
 
                                                 <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
@@ -189,12 +194,13 @@ const logout = () => {
                                             API Tokens
                                         </JetDropdownLink>
 
-                                        <div class="border-t border-gray-100" />
+                                        <div class="border-t border-gray-100 dark:border-gray-600 " />
 
                                         <!-- Authentication -->
                                         <form @submit.prevent="logout">
                                             <JetDropdownLink as="button">
-                                                <div class="flex justify-start items-center text-red-500">
+                                                <div
+                                                    class="flex justify-start items-center text-red-400 dark:hover:text-red-500">
                                                     <Icon icon="logout" class="w-5 h-5 mr-1" />
                                                     Log Out
                                                 </div>
@@ -203,12 +209,23 @@ const logout = () => {
                                     </template>
                                 </JetDropdown>
                             </div>
+
+                            <div class="ml-3 relative">
+                                <button @click="toggleDark()"
+                                    class="flex items-center p-1 mr-1 text-xs font-medium text-gray-700 bg-white rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                    <icon v-if="!isDark"
+                                        class="text-sm text-gray-500 bg-white hover:text-gray-700 focus:outline-none h-4 w-4 dark:bg-gray-800 dark:text-gray-100  hover:bg-gray-100"
+                                        icon="sun" />
+                                    <icon v-else class="text-sm text-gray-500 bg-white hover:text-gray-700 focus:outline-none h-4 w-4 dark:bg-gray-800 dark:text-gray-100
+                                        dark:hover:bg-gray-700" icon="moon" />
+                                </button>
+                            </div>
                         </div>
 
                         <!-- Hamburger -->
                         <div class="-mr-2 flex items-center sm:hidden">
                             <button
-                                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition"
+                                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition dark:bg-gray-800 dark:border dark:border-gray-400"
                                 @click="showingNavigationDropdown = !showingNavigationDropdown">
                                 <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                                     <path
@@ -235,7 +252,7 @@ const logout = () => {
                     </div>
 
                     <!-- Responsive Settings Options -->
-                    <div class="pt-4 pb-1 border-t border-gray-200">
+                    <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-700">
                         <div class="flex items-center px-4">
                             <div v-if="$page.props.jetstream.managesProfilePhotos" class="shrink-0 mr-3">
                                 <img class="h-10 w-10 rounded-full object-cover"
@@ -243,10 +260,10 @@ const logout = () => {
                             </div>
 
                             <div>
-                                <div class="font-medium text-base text-gray-800">
+                                <div class="font-medium text-base text-gray-800 dark:text-white">
                                     {{ $page.props.user.name }}
                                 </div>
-                                <div class="font-medium text-sm text-gray-500">
+                                <div class="font-medium text-sm text-gray-500 dark:text-gray-400">
                                     {{ $page.props.user.email }}
                                 </div>
                             </div>
@@ -255,7 +272,7 @@ const logout = () => {
                         <div class="mt-3 space-y-1">
                             <JetResponsiveNavLink :href="route('profile.show')"
                                 :active="route().current('profile.show')">
-                                <div class="flex justify-start items-center">
+                                <div class="flex justify-start items-center dark:text-gray-400">
                                     <Icon icon="user-circle" class="w-5 h-5 mr-1" />
                                     Profile
                                 </div>
@@ -269,7 +286,7 @@ const logout = () => {
                             <!-- Authentication -->
                             <form method="POST" @submit.prevent="logout">
                                 <JetResponsiveNavLink as="button">
-                                    <div class="flex justify-start items-center">
+                                    <div class="flex justify-start items-center dark:text-gray-400">
                                         <Icon icon="logout" class="w-5 h-5 mr-1" />
                                         Log Out
                                     </div>
@@ -324,7 +341,7 @@ const logout = () => {
             </nav>
 
             <!-- Page Heading -->
-            <header v-if="$slots.header" class="bg-white shadow">
+            <header v-if="$slots.header" class="bg-white shadow dark:bg-gray-800">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <slot name="header" />
                 </div>
