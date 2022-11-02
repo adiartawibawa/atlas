@@ -1,3 +1,7 @@
+@import "atlas.css";
+@import "perfect-scrollbar.css";
+@import "tooltips.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

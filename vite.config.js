@@ -40,6 +40,7 @@ export default defineConfig(async ({ command }) => {
         resolve: {
             alias: {
                 "@": resolve(__dirname, "resources/js"),
+                "~styles": resolve(__dirname, "resources/css"),
                 "/img": resolve(__dirname, "public/img"),
             },
         },
