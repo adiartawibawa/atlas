@@ -43,6 +43,7 @@
                                     </div>
                                 </form>
                             </li>
+
                             <li>
                                 <a
                                     href="https://demos.creative-tim.com/soft-ui-flowbite-pro/"
@@ -100,7 +101,8 @@
                                     >
                                 </a>
                             </li>
-                            <li>
+
+                            <!-- <li>
                                 <a
                                     href="https://demos.creative-tim.com/soft-ui-flowbite-pro/kanban/"
                                     class="flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200 group transition-all duration-200"
@@ -666,12 +668,12 @@
                                         >
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
                         </ul>
-                        <hr
+                        <!-- <hr
                             class="border-0 h-px bg-gradient-to-r from-gray-100 via-gray-300 to-gray-100"
-                        />
-                        <div class="pt-2">
+                        /> -->
+                        <!-- <div class="pt-2">
                             <a
                                 href="https://creative-tim.com/product/soft-ui-flowbite-pro"
                                 target="_blank"
@@ -910,11 +912,11 @@
                                     >Help</span
                                 >
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </perfect-scrollbar>
-            <div
+            <!-- <div
                 class="hidden relative bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex bg-gray-100"
                 sidebar-bottom-menu=""
             >
@@ -1195,7 +1197,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
     </aside>
     <div

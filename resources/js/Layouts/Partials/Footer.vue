@@ -119,14 +119,14 @@
                 href="https://creative-tim.com"
                 class="hover:underline"
                 target="_blank"
-                >Creative Tim</a
+                >PRADStudio</a
             >
             and
             <a
                 href="https://flowbite.com"
                 class="hover:underline"
                 target="_blank"
-                >Flowbite</a
+                >Adi Arta Wibawa</a
             >. All rights reserved.
         </p>
     </div>
