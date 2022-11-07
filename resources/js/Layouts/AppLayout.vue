@@ -352,8 +352,8 @@ const toggleDark = useToggle(isDark)
                 <slot />
             </main>
 
-            <footer class="my-10 text-sm text-center text-gray-500">
-                <p >
+            <footer class="mb-8 text-sm text-center text-gray-500 bg-gray-100">
+                <p>
                     © 2022 Built with ❤️ by
                     <a href="https://creative-tim.com" class="hover:underline" target="_blank">PRADStudio</a>
                     and
