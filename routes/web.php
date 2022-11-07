@@ -32,10 +32,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         return Inertia::render('Home');
     })->name('home');
 
-    Route::get('/test', function () {
-        return Inertia::render('Admin/Test');
-    })->name('admin');
-
     // Admin Area
     Route::middleware(['role:Admin'])->prefix('admin')->group(function () {
 

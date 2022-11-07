@@ -41,7 +41,7 @@ const toggleDark = useToggle(isDark)
 
         <JetBanner />
 
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-800">
+        <div class="flex flex-col h-screen justify-between bg-gray-100 dark:bg-gray-800">
             <nav class="bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -348,9 +348,19 @@ const toggleDark = useToggle(isDark)
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main class="mb-auto">
                 <slot />
             </main>
+
+            <footer class="my-10 text-sm text-center text-gray-500">
+                <p >
+                    © 2022 Built with ❤️ by
+                    <a href="https://creative-tim.com" class="hover:underline" target="_blank">PRADStudio</a>
+                    and
+                    <a href="https://flowbite.com" class="hover:underline" target="_blank">Adi Arta Wibawa</a>. All
+                    rights reserved.
+                </p>
+            </footer>
         </div>
     </div>
 </template>
