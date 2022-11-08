@@ -2,7 +2,8 @@
 
 namespace App\Traits;
 
-use Arr;
+
+use Illuminate\Support\Arr as SupportArr;
 
 trait Authorizable
 {
@@ -35,9 +36,11 @@ trait Authorizable
     public function getAbility($method)
     {
         $routeName = explode('.', \Request::route()->getName());
-        $action = Arr::get($this->getAbilities(), $method);
+        $action = SupportArr::get($this->getAbilities(), $method);
 
-        return $action ? $action . '_' . $routeName[0] : null;
+        // return the ability of authenticate user
+        // adjust the number of the array of $routeName[1] according to the url you use
+        return $action ? $action . '_' . $routeName[1] : null;
     }
 
     private function getAbilities()

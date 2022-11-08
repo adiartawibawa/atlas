@@ -18,6 +18,7 @@ class UsersController extends Controller
      */
     public function index()
     {
+        // $this->authorize('view_users');
         return Inertia::render('Admin/Users/Index');
     }
 
